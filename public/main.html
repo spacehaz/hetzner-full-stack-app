@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>my jwt application</title>
+	<button id="logout-button">Logout</button>
+</head>
+<body>
+	authorized!!!
+</body>
+
+<script type="text/javascript">
+	const logoutButton = document.getElementById('logout-button')
+	logoutButton.addEventListener('click', e => {
+		fetch('http://localhost:3000/logout', {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: {
+			  'Content-Type': 'application/json'
+			}
+		}) 
+	})
+</script>
+</html>

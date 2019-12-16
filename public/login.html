@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>my jwt application</title>
+</head>
+<body>
+	<input type="text" name="email" id="email">
+	<input type="password" name="password" id="password">
+	<button id="login-button">Login</button>
+</body>
+
+<script type="text/javascript">
+	const loginButton = document.getElementById('login-button')
+	loginButton.addEventListener('click', e => {
+		const email = document.getElementById('email')
+		const password = document.getElementById('password')
+		fetch('http://localhost:3000/login', {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: {
+			  'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				email: email.value,
+				password: password.value
+			})
+		}) 
+	})
+</script>
+</html>
